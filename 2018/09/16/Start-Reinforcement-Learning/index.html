@@ -127,13 +127,14 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(/img/a_dog.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(/img/a_dog.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
                 <a href="#" style="padding: 4rem 4rem 2rem 1rem ;"><h2>强化学习入门</h2><h3>Jiajie Shen</h3></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
                 <p>填个强化学习入门的坑~</p>
 <a id="more"></a>
+
 <h2 id="Step-1-基础的概念"><a href="#Step-1-基础的概念" class="headerlink" title="Step 1: 基础的概念"></a>Step 1: 基础的概念</h2><p><img src="/img/Start-Reinforcement-Learning/easy_Simple.png" alt="easy example"></p>
 <ul>
 <li>引入一些基本的概念<ul>
@@ -177,7 +178,7 @@
 <li><p>基本思路：每次尝试时，以 $\epsilon$ 的概率进行探索，以均匀概率随机选取一个摇臂，以 $1-\epsilon$ 的概率进行利用，即选择当前<strong>平均奖赏</strong>最高的摇臂</p>
 <ul>
 <li><p>关于如何记录<strong>平均奖赏</strong>，最简单的是记录每个摇臂获得的奖赏取平均，但是需要记录若干个奖赏值，对计算空间有一定要求。于是我们采取增量式来记录平均奖赏：</p>
-<p>$$Q<em>n(k) = \frac{1}{n}((n-1)\times Q</em>{n-1}(k) + v_n)$$</p>
+<p>$$Q_n(k) = \frac{1}{n}((n-1)\times Q_{n-1}(k) + v_n)$$</p>
 </li>
 <li><p>（其中 $Q_n(k)$ 为摇臂k的n次尝试后的平均奖赏，$v_n$为第n次获得的奖赏) ，此后只需要记录 $Q_n(k) $ 和  $v_n$ 的值。</p>
 </li>
@@ -224,7 +225,7 @@
 <li>$V(\cdot)$ 称为“状态值函数(state value function)” </li>
 </ul>
 </li>
-<li>$Q^{\pi}(x，a)$: 代表从状态 $x$ 出发后，执行动作 $a$ <strong>后</strong>使用策略 $\pi$ 带来的<strong>累计</strong>奖赏。<ul>
+<li>$Q^{\pi}(x，a)$: 代表从状态 $x$ 出发后，执行动作 $a$ <strong>后**使用策略 $\pi$ 带来的</strong>累计**奖赏。<ul>
 <li>$Q(\cdot)$ 称为“状态-动作值函数(state-action value function)” </li>
 </ul>
 </li>
@@ -233,8 +234,8 @@
 </ul>
 <p>为了得到最优的算法，我们先讨论<strong>策略评估</strong>，即如何评估我们的算法</p>
 <h3 id="策略评估"><a href="#策略评估" class="headerlink" title="策略评估"></a>策略评估</h3><ul>
-<li>我们先尝试给出$V^{\pi}(x)$的式子：(其中 $r_t$为第 $t$ 步获得的奖赏)<br>$$\begin{cases}<br>V^{\pi}<em>T(x) = \mathbb E</em>{\pi}[\frac{1}{T} \sum_{t=1}^T r_t | x<em>0=x]\<br>V^{\pi}</em>\gamma (x) = \mathbb E<em>{\pi}[\sum</em>{t=0}^{+\infty}\gamma ^tr_{t+1} | x_0=x]\<br>\end{cases}<br>$$</li>
-<li>以上两个式子分别是根据 $T$ 步累计奖赏和 $\gamma$ 折扣累计奖赏展开的，计算了前 $T$ 步奖赏的期望和按 $\gamma$ 衰减奖赏的期望。同样的我们有<br>$$\begin{cases}<br>Q^{\pi}<em>T(x，a) = \mathbb E</em>{\pi}[\frac{1}{T} \sum_{t=1}^T r_t | x_0=x，a<em>0=a]\<br>Q^{\pi}</em>\gamma (x，a) = \mathbb E<em>{\pi}[\sum</em>{t=0}^{+\infty}\gamma ^tr_{t+1} | x_0=x，a_0=a]\<br>\end{cases}<br>$$</li>
+<li>我们先尝试给出$V^{\pi}(x)$的式子：(其中 $r_t$为第 $t$ 步获得的奖赏)<br>$$\begin{cases}<br>V^{\pi}_T(x) = \mathbb E_{\pi}[\frac{1}{T} \sum_{t=1}^T r_t | x_0=x]\<br>V^{\pi}_\gamma (x) = \mathbb E_{\pi}[\sum_{t=0}^{+\infty}\gamma ^tr_{t+1} | x_0=x]\<br>\end{cases}<br>$$</li>
+<li>以上两个式子分别是根据 $T$ 步累计奖赏和 $\gamma$ 折扣累计奖赏展开的，计算了前 $T$ 步奖赏的期望和按 $\gamma$ 衰减奖赏的期望。同样的我们有<br>$$\begin{cases}<br>Q^{\pi}_T(x，a) = \mathbb E_{\pi}[\frac{1}{T} \sum_{t=1}^T r_t | x_0=x，a_0=a]\<br>Q^{\pi}_\gamma (x，a) = \mathbb E_{\pi}[\sum_{t=0}^{+\infty}\gamma ^tr_{t+1} | x_0=x，a_0=a]\<br>\end{cases}<br>$$</li>
 <li>和上面状态值函数的区别在于初始条件增加了$a_0=a$</li>
 </ul>
 <p>考虑到系统下一时刻的状态只和当前状态有关，不依赖以往任何状态，于是我们可以通过递归展开进一步计算 $V^{\pi}_T(x)$。</p>
@@ -308,7 +309,7 @@
 <ol>
 <li>初始化：$\forall x\in X, V(x)=0, \pi(x,a)=\frac{1}{|A(x)|}$(开始的策略为随机选择)</li>
 <li>评估策略：利用bellman等式计算 $V_T(x)$</li>
-<li>优化策略：$\forall x\in X,\pi<em>{new}(x)=\arg\max</em>{a\in A} Q(x,a)$(选取奖赏最大化的动作)</li>
+<li>优化策略：$\forall x\in X,\pi_{new}(x)=\arg\max_{a\in A} Q(x,a)$(选取奖赏最大化的动作)</li>
 <li>判断是否停止循环，不停止回到2</li>
 <li>得到最优策略 $\pi$<ul>
 <li>上面的算法核心在第三步优化策略，这也是“策略迭代”名字的由来，不过每次改进策略后都要重新进行策略评估，这通常很费时<br>之前我们提到，策略改进能稳定带来值函数的增加，值函数关于策略是单调递增的，所以我们直接最大化值函数$V(x)$ 来获得策略，这就是值迭代：</li>
@@ -322,7 +323,7 @@
 <li>初始化：$\forall x\in X, V(x)=0$</li>
 <li>根据最优bellman等式优化 $V(x)$</li>
 <li>判断是否停止循环，不停止回到2</li>
-<li>得到最优策略：$\pi<em>{new}(x)=\arg\max</em>{a\in A} Q(x,a)$</li>
+<li>得到最优策略：$\pi_{new}(x)=\arg\max_{a\in A} Q(x,a)$</li>
 </ol>
 <p>以上就是关于有模型学习的讨论</p>
 <h2 id="Step-4-免模型学习"><a href="#Step-4-免模型学习" class="headerlink" title="Step 4: 免模型学习"></a>Step 4: 免模型学习</h2><h3 id="蒙特卡罗强化学习"><a href="#蒙特卡罗强化学习" class="headerlink" title="蒙特卡罗强化学习"></a>蒙特卡罗强化学习</h3><p>与有模型学习相比，免模型学习对环境一无所知，我们先讨论未知环境带来的问题：</p>
@@ -356,15 +357,15 @@
 <h3 id="时序差分学习"><a href="#时序差分学习" class="headerlink" title="时序差分学习"></a>时序差分学习</h3><p>蒙特卡罗强化学习需要在<strong>一轮采样</strong>之后才进行值函数估计，我们之前在有模型学习下引入的策略迭代和值迭代算法可以基于bellman等式，在<strong>每一步采样</strong>之后就进行值函数估计，基于这样的想法，我们引入时序差分学习。</p>
 <p>(此部分可以掠过数学推导部分，可以看懂即可)</p>
 <p>还记得这个式子吗？(可以回顾之前的内容)</p>
-<p>$$Q<em>n(k) = \frac{1}{n}((n-1)\times Q</em>{n-1}(k) + v_n)$$</p>
+<p>$$Q_n(k) = \frac{1}{n}((n-1)\times Q_{n-1}(k) + v_n)$$</p>
 <p>我们也可以在这个基础上得到增量式计算值函数的公式：</p>
 <ul>
-<li>对于状态-动作对$(x,a)$，不妨假定基于 $t$ 个采样已经估计出值函数<br>$Q<em>t^{\pi}(x,a)=\frac{1}{t}\sum</em>{i=1}^tr<em>i$ ，在得到第 $t+1$ 个采样 $r</em>{t+1}$ 时，代入上式有:</li>
+<li>对于状态-动作对$(x,a)$，不妨假定基于 $t$ 个采样已经估计出值函数<br>$Q_t^{\pi}(x,a)=\frac{1}{t}\sum_{i=1}^tr_i$ ，在得到第 $t+1$ 个采样 $r_{t+1}$ 时，代入上式有:</li>
 </ul>
-<p>$$Q<em>{t+1}^{\pi}(x,a) = Q</em>{t}^{\pi}(x,a) +[\frac{1}{t+1}(r<em>{t+1}-Q</em>{t}^{\pi}(x,a))]$$<br>式中括号部分则为 $Q$ 值变化要加的增量。</p>
-<p>此外更一般的，将 $\frac{1}{t+1}$ 可以替换为系数 $\alpha<em>{t+1}$，则增量为$\alpha</em>{t+1}(r<em>{t+1}-Q</em>{t}^{\pi}(x,a))$，在实践中通常令 $\alpha_{t}$ 为一个较小的正数 $\alpha$，将它看作一个累计奖赏的衰减系数，$\alpha$ 越大，越靠后的累计奖赏越重要。</p>
+<p>$$Q_{t+1}^{\pi}(x,a) = Q_{t}^{\pi}(x,a) +[\frac{1}{t+1}(r_{t+1}-Q_{t}^{\pi}(x,a))]$$<br>式中括号部分则为 $Q$ 值变化要加的增量。</p>
+<p>此外更一般的，将 $\frac{1}{t+1}$ 可以替换为系数 $\alpha_{t+1}$，则增量为$\alpha_{t+1}(r_{t+1}-Q_{t}^{\pi}(x,a))$，在实践中通常令 $\alpha_{t}$ 为一个较小的正数 $\alpha$，将它看作一个累计奖赏的衰减系数，$\alpha$ 越大，越靠后的累计奖赏越重要。</p>
 <p>上式是单步奖赏最大化问题中引入的迭代式，下面我们用bellman等式来计算多步奖赏最大化问题中的迭代式</p>
-<p>以$\gamma$ 折扣累计奖赏为例，有<br>$$Q<em>{t+1}^{\pi}(x,a) = Q</em>{t}^{\pi}(x,a) +\alpha(R^{\alpha}_{x\to x’}+ \gamma Q^{\pi}<em>t(x’,a’) -Q</em>{t}^{\pi}(x,a))$$<br>其中 $x’$ 时前一次在状态 $x$ 执行 $\alpha$ 后转移到的状态，$a’$ 是策略 $\pi$ 在 $x’$ 上选择的动作。</p>
+<p>以$\gamma$ 折扣累计奖赏为例，有<br>$$Q_{t+1}^{\pi}(x,a) = Q_{t}^{\pi}(x,a) +\alpha(R^{\alpha}_{x\to x’}+ \gamma Q^{\pi}_t(x’,a’) -Q_{t}^{\pi}(x,a))$$<br>其中 $x’$ 时前一次在状态 $x$ 执行 $\alpha$ 后转移到的状态，$a’$ 是策略 $\pi$ 在 $x’$ 上选择的动作。</p>
 <p>现在我们有了增量计算值函数的手段，下面引入 Sarsa 和 Q-learning</p>
 <p><img src="/img/Start-Reinforcement-Learning/Sarsa.png" alt="Sarsa"></p>
 <p>此算法名字的由来，是因为每次更新值函数需要知道前一步的状态(state)，前一步的动作(action)，奖赏值(state)，当前状态(state)，将要执行的动作(action)，由此得名 Sarsa算法</p>

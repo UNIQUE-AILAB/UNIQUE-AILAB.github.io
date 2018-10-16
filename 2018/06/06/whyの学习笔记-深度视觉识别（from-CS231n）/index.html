@@ -140,6 +140,7 @@
 <p>$$\sigma(x)=\sum_{i=1}^n(w_ix_i+b)$$</p>
 <p>使得计算图中$\sigma$节点处总有$\frac{\partial \sigma}{\partial w}=x$，使得$w$的更新只能向着梯度全为正（或全为负）的方向更新，使得更新效率极低。</p>
 <a id="more"></a>
+
 <p>解决办法：将数据归一化到均值为$0$的区间内，如$[-1,1]$</p>
 <h3 id="tanh函数：-tanh-x"><a href="#tanh函数：-tanh-x" class="headerlink" title="tanh函数：$tanh(x)$"></a>tanh函数：$tanh(x)$</h3><ul>
 <li>由于有饱和区域，仍然会导致梯度消失（在饱和区梯度为0）</li>
@@ -209,25 +210,25 @@
 <p>$$x=x_0-H^{-1}(x_0)E’(x_0)$$</p>
 <p>其中令$-H^{-1}(x_0)E’(x_0)=d$称为牛顿法的迭代方向。</p>
 <h4 id="2-拟牛顿法"><a href="#2-拟牛顿法" class="headerlink" title="2.拟牛顿法"></a>2.拟牛顿法</h4><p>由于牛顿法每一次迭代就要计算二阶导数并求逆，计算较为复杂，因此使用一个近似的矩阵$B$和$D$来逼近$H$和$H^{-1}$。</p>
-<p>要拟合海森矩阵，就要知道它满足的条件，并以此作为依据来进行拟合。假设在第$k$次迭代过程中的$x$值为$x<em>k$，那么将$x$在$x</em>{k+1}$处泰勒展开，并对等式两边应用哈密尔顿算子（即$\nabla$），可以得到关于$H$的方程，将$x_k$代入方程（即把$f(x<em>k)$在$x</em>{k+1}$处展开），可以得到拟牛顿法需要满足的条件：</p>
-<p>$$x_{k+1}-x<em>k=H</em>{k+1}^{-1}(\nabla f(x_{k+1})-\nabla f(x_k))$$</p>
+<p>要拟合海森矩阵，就要知道它满足的条件，并以此作为依据来进行拟合。假设在第$k$次迭代过程中的$x$值为$x_k$，那么将$x$在$x_{k+1}$处泰勒展开，并对等式两边应用哈密尔顿算子（即$\nabla$），可以得到关于$H$的方程，将$x_k$代入方程（即把$f(x_k)$在$x_{k+1}$处展开），可以得到拟牛顿法需要满足的条件：</p>
+<p>$$x_{k+1}-x_k=H_{k+1}^{-1}(\nabla f(x_{k+1})-\nabla f(x_k))$$</p>
 <p>只要根据这个条件迭代更新矩阵$B,D$，就可以认为最终得到的结果与$H,H^{-1}$在性质上近似。为了消除牛顿法收敛不稳定的特性，常常采用阻尼牛顿法：<br>在迭代方向$d$上寻找一个最优的步长$\lambda$进行迭代。即：</p>
 <p>$$\lambda=arg\min_{\lambda \in \Bbb R}f(x+\lambda d)$$</p>
 <p>常用的拟牛顿法有：</p>
 <ul>
 <li><p>DFP算法：$B,D$初始化为单位矩阵，通过待定法推导得出迭代公式：</p>
 <p>  $$D_{k+1}=D_k+\frac{s_ks_k^T}{s_k^Ty_k}-\frac{D_ky_ky_k^TD_k}{y_k^TD_ky_k}$$</p>
-<p>  其中$s_k=\lambda_k d_k,y<em>k=\nabla f(x</em>{k+1})-\nabla f(x_k)$</p>
+<p>  其中$s_k=\lambda_k d_k,y_k=\nabla f(x_{k+1})-\nabla f(x_k)$</p>
 </li>
-<li><p>BFGS算法：思路与DFG算法大致相同，只是$s_k,y<em>k$的位置呼互换，推导过程相似。得出迭代表达式：<br>  $$D</em>{k+1}=(I-\frac{s_ky_k^T}{y_k^Ts_k})D_k(I-\frac{y_ks_k^T}{y_k^Ts_k})+\frac{s_ks_k^T}{y_k^Ts_k}$$</p>
+<li><p>BFGS算法：思路与DFG算法大致相同，只是$s_k,y_k$的位置呼互换，推导过程相似。得出迭代表达式：<br>  $$D_{k+1}=(I-\frac{s_ky_k^T}{y_k^Ts_k})D_k(I-\frac{y_ks_k^T}{y_k^Ts_k})+\frac{s_ks_k^T}{y_k^Ts_k}$$</p>
 <p>  其中$y_k,s_k$与之前相同。</p>
 </li>
-<li>L-BFGS算法：由于存储$D_k$的开销巨大，因此存储m组$s,y$，即$(s_k,y<em>k),(s</em>{k-1},y<em>{k-1}),…(s</em>{k+1-m},y_{k+1-m})$，并用它们来表示$D_k$。但是由于用到多组$s,y$，使得$D_k$的表达式十分复杂，因此使用快速计算$D_k\nabla f(x_k)$的算法，算法详情见论文：<strong><em>Updating Quasi-Newton Matrices with Limited Storage</em></strong></li>
+<li>L-BFGS算法：由于存储$D_k$的开销巨大，因此存储m组$s,y$，即$(s_k,y_k),(s_{k-1},y_{k-1}),…(s_{k+1-m},y_{k+1-m})$，并用它们来表示$D_k$。但是由于用到多组$s,y$，使得$D_k$的表达式十分复杂，因此使用快速计算$D_k\nabla f(x_k)$的算法，算法详情见论文：<strong><em>Updating Quasi-Newton Matrices with Limited Storage</em></strong></li>
 </ul>
 <h2 id="4-抗过拟合"><a href="#4-抗过拟合" class="headerlink" title="4.抗过拟合"></a>4.抗过拟合</h2><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>在损失函数后加入一项正则项，作用是作为“惩罚项”，抑制了模型参数的复杂度。常用的有$L_1$正则化和$L_2$正则化：</p>
 <ul>
-<li>$L_1$正则项：所有参数的绝对值之和，可以表示为参数向量$W$的$L_1$范数：$\lambda||W|| <em>1 = \lambda \sum</em>{i=1}^n|w_i|$</li>
-<li>$L_2$正则化：表示为参数向量$W$的$L_2$范数：$\lambda||W||<em>2^2 = \lambda \sum</em>{i=1}^n w_i^2$</li>
+<li>$L_1$正则项：所有参数的绝对值之和，可以表示为参数向量$W$的$L_1$范数：$\lambda||W|| _1 = \lambda \sum_{i=1}^n|w_i|$</li>
+<li>$L_2$正则化：表示为参数向量$W$的$L_2$范数：$\lambda||W||_2^2 = \lambda \sum_{i=1}^n w_i^2$</li>
 </ul>
 <h3 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h3><p>在不同训练集上训练不同的模型，最后对多个模型集成，得到一个平均的模型。（不同模型超参数有时也会不同）</p>
 <h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>神经网络每次正向传播经过某一层时，随机将该层中的某些神经元的激活函数置0（相当于暂时丢弃这些神经元），要注意每次传播经过每一层丢弃的神经元都时随机的，并且置零的神经元数目根据<code>dropout</code>的概率$p$决定。一般在全连接层进行dropout。另一种解释是，dropout相当于在一个网络中集成学习。 </p>
@@ -252,7 +253,7 @@
 <p>$$P(x)=\int_{z}P(z)P(x|z)$$</p>
 <p>即真实数据的概率分布等于，在向量$z$中选择一个初始值$z$（这个值用来控制选择哪个高斯模型的哪个位置采样），概率为$P(z)$，并且在给定一个初始值$z$的情况下，$G$生成真实样本$x$的概率，即$P(x|z)$。对于每个这样的初始值$z$，模型进行一次采样，将所有采样的结果叠加，概率为$\int P(x)$</p>
 <p>通过数学推导，$L = logP(x) = L_b + KL(q(z|x)||p(z|x))$，$L$表示似然，也即$L$由$q(z|x),p(z|x)$的$KL$散度（一种衡量概率分布之间的关联性的量）以及一个$L_b$组成，由于$KL&gt;0$，因此$L_b$就是似然的下界。</p>
-<p>在实际的操作中，往往通过最大化该下界，来使得$L<em>b$尽可能接近$L$，即尽可能最小化$KL$散度，使得$KL=0$。通过同时最小化$KL$以及最大化$E</em>{q(z|x)}[logP(x|z)]$，就得到了$VAE$的损失函数。</p>
+<p>在实际的操作中，往往通过最大化该下界，来使得$L_b$尽可能接近$L$，即尽可能最小化$KL$散度，使得$KL=0$。通过同时最小化$KL$以及最大化$E_{q(z|x)}[logP(x|z)]$，就得到了$VAE$的损失函数。</p>
 <p>缺点：只是单纯地使得输出的结果和数据集中的某些图片越接近越好，有时只是数据集中不同样本的简单组合。</p>
 
             </div>

@@ -189,27 +189,7 @@
 <h3 id="标准化-Standardization"><a href="#标准化-Standardization" class="headerlink" title="标准化(Standardization)"></a>标准化(Standardization)</h3><p>使数据均值为0，标准差为1</p>
 <p>$$x’ = \frac{x-\mu}{\sigma}$$</p>
 <h2 id="评价标准"><a href="#评价标准" class="headerlink" title="评价标准"></a>评价标准</h2><p>首先定义基本的评价标准</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">预测为真</th>
-<th style="text-align:center">预测为假</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">实际为真</td>
-<td style="text-align:center">TP(真正例)</td>
-<td style="text-align:center">FN(假反例)</td>
-</tr>
-<tr>
-<td style="text-align:center">实际为假</td>
-<td style="text-align:center">FP(假正例)</td>
-<td style="text-align:center">TN(真反例)</td>
-</tr>
-</tbody>
-</table>
+<p>|  | 预测为真 | 预测为假 |<br>| :—: | :—: | :—: |<br>| 实际为真 | TP(真正例) | FN(假反例) |<br>| 实际为假 | FP(假正例) | TN(真反例) |</p>
 <p>接下来的评价标准基本都基于上面这四个</p>
 <h3 id="精确率-查准率-precision"><a href="#精确率-查准率-precision" class="headerlink" title="精确率/查准率(precision)"></a>精确率/查准率(precision)</h3><p>$$P = \frac{TP}{TP+FP}$$</p>
 <h3 id="召回率-查全率-recall"><a href="#召回率-查全率-recall" class="headerlink" title="召回率/查全率(recall)"></a>召回率/查全率(recall)</h3><p>$$R = \frac{TP}{TP+FN}$$</p>
@@ -232,6 +212,7 @@
 <p><img src="/img/no_padding_no_strides_transposed.gif" alt=""></p>
 <p>上图可以理解3x3的卷积核，padding=2，stride=1的卷积操作。而同时，在特征图大小变化上，与padding=0，stride=1的卷积操作相反。<br>用pytorch实现时代码如下，其中kernel_size为3，stride与padding按其对应的卷积操作参数进行设置。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.ConvTranspose2d(in_channels, out_channels, kernel_size, stride=<span class="number">1</span>, padding=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
 <p>当卷积操作stride大于1时，此时其对应的转置卷积的stride小于1，此时被称为分数卷积(fractionally-strided convolution)，如下图：</p>
 <p><img src="/img/no_padding_strides_transposed.gif" alt=""></p>
 <p><a href="https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md" target="_blank" rel="noopener">more .gif are here</a></p>
@@ -241,6 +222,7 @@
 <p><img src="/img/dilated.png" alt=""></p>
 <p>pytorch中实现有一个空洞的卷积操作，代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=<span class="number">1</span>, padding=<span class="number">0</span>, dilation=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
 <p>其中dilation参数默认为1，为1在pytorch中定义为没有空洞。不同框架中对此参数的定义不同，需要注意。</p>
 <p>空洞卷积感受野大的特点使其可以处理长序列问题，甚至可以达到和RNN相差无几的效果。</p>
 <h3 id="可变形卷积-Deformable-Convolutions"><a href="#可变形卷积-Deformable-Convolutions" class="headerlink" title="可变形卷积(Deformable Convolutions)"></a>可变形卷积(Deformable Convolutions)</h3><p><em>TODO</em></p>
