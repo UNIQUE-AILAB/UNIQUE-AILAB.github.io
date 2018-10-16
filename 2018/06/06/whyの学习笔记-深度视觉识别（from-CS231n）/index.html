@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/favicon.png"/>
+	 <link rel="shortcut icon" href="/img/favicon.png">
+	
+			
+    <title>
+    Unique AI Lab
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">UNIQUE AI</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/GAN-图像翻译-CV/">GAN 图像翻译 CV</a></li><li><a class="category-link" href="/categories/强化学习/">强化学习</a></li><li><a class="category-link" href="/categories/机器学习/">机器学习</a></li><li><a class="category-link" href="/categories/深度学习/">深度学习</a></li><li><a class="category-link" href="/categories/深度学习/计算机视觉/">计算机视觉</a></li><li><a class="category-link" href="/categories/自然语言处理/">自然语言处理</a></li><li><a class="category-link" href="/categories/自然语言处理/NLP/">NLP</a></li><li><a class="category-link" href="/categories/自然语言处理/NLP/机器学习/">机器学习</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简介">
+		                简介
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/project/" title="项目">
+		                项目
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/member/" title="成员">
+		                成员
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/UNIQUE-AILAB" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 1rem ;"><h2>whyの学习笔记 深度视觉识别（from CS231n &amp; NTU-ML）</h2><h3></h3></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="1-激活函数"><a href="#1-激活函数" class="headerlink" title="1.激活函数"></a>1.激活函数</h2><h3 id="sigmoid函数：-sigma-x-sum-i-1-n-w-ix-i-b-："><a href="#sigmoid函数：-sigma-x-sum-i-1-n-w-ix-i-b-：" class="headerlink" title="sigmoid函数：$\sigma(x)=\sum_{i=1}^n(w_ix_i+b)$："></a>sigmoid函数：$\sigma(x)=\sum_{i=1}^n(w_ix_i+b)$：</h3><ul>
+<li>使用了指数，计算量大</li>
+<li>由于有饱和区域，在输入较大的$x$时，会导致梯度消失（在饱和区梯度为0）</li>
+<li>当训练数据全为正或全为负时，会导致梯度更新很慢。由于其公式:</li>
+</ul>
+<p>$$\sigma(x)=\sum_{i=1}^n(w_ix_i+b)$$</p>
+<p>使得计算图中$\sigma$节点处总有$\frac{\partial \sigma}{\partial w}=x$，使得$w$的更新只能向着梯度全为正（或全为负）的方向更新，使得更新效率极低。</p>
+<a id="more"></a>
+<p>解决办法：将数据归一化到均值为$0$的区间内，如$[-1,1]$</p>
+<h3 id="tanh函数：-tanh-x"><a href="#tanh函数：-tanh-x" class="headerlink" title="tanh函数：$tanh(x)$"></a>tanh函数：$tanh(x)$</h3><ul>
+<li>由于有饱和区域，仍然会导致梯度消失（在饱和区梯度为0）</li>
+</ul>
+<h3 id="ReLU函数：-f-x-max-0-x"><a href="#ReLU函数：-f-x-max-0-x" class="headerlink" title="ReLU函数：$f(x)=\max(0,x)$"></a>ReLU函数：$f(x)=\max(0,x)$</h3><ul>
+<li>收敛更快（大概是sigmoid的6倍）</li>
+<li>在正半轴不会出现梯度消失</li>
+<li>符合生物学理论</li>
+<li><p>计算成本低</p>
+</li>
+<li><p>在负半轴处有饱和区，会有梯度消失（dead ReLU）</p>
+</li>
+<li>不是以$0$为中心</li>
+</ul>
+<h3 id="参数整流器-PReLU-：-f-x-max-alpha-x-x"><a href="#参数整流器-PReLU-：-f-x-max-alpha-x-x" class="headerlink" title="参数整流器(PReLU)：$f(x)=\max(\alpha x,x)$"></a>参数整流器(PReLU)：$f(x)=\max(\alpha x,x)$</h3><h4 id="Leaky-ReLU：-f-x-max-0-01x-x"><a href="#Leaky-ReLU：-f-x-max-0-01x-x" class="headerlink" title="Leaky ReLU：$f(x)=\max(0.01x,x)$"></a>Leaky ReLU：$f(x)=\max(0.01x,x)$</h4><ul>
+<li>在整个实数域上没有饱和区，完全不会出现梯度消失。</li>
+<li>同时也具有ReLU的优点</li>
+</ul>
+<h3 id="ELU函数："><a href="#ELU函数：" class="headerlink" title="ELU函数："></a>ELU函数：</h3><ul>
+<li><p>表达式为：$f(x)=\begin{cases} x \qquad if \ x&gt;0\\alpha(e^x-1) \qquad if \ x\leqslant0  \end{cases}$</p>
+</li>
+<li><p>具有ReLU的优点</p>
+</li>
+<li>对噪音有更强的鲁棒性</li>
+</ul>
+<h3 id="maxout函数：-max-W-Tx-1-b-1-W-Tx-2-b-2"><a href="#maxout函数：-max-W-Tx-1-b-1-W-Tx-2-b-2" class="headerlink" title="maxout函数：$\max(W^Tx_1+b_1,W^Tx_2+b_2)$"></a>maxout函数：$\max(W^Tx_1+b_1,W^Tx_2+b_2)$</h3><p><code>maxout</code>的本质相当于是让网络自己学习应该使用什么激活函数。<code>maxout</code>将两个神经元合并成一个（只输出最大值），由于两个神经元的参数都是学习得到的，因此通过参数在学习过程中的变化，两个神经元的输出组合也在不断变化，相当于学习了激活函数。</p>
+<p>由于两个神经元都是线性的，因此最终<code>maxout</code>学习得到的激活函数是分段的线性函数（例如也有可能学习到<code>ReLU</code>）</p>
+<p>在训练时，假设另一个较小的神经元不存在。</p>
+<h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><p>一种归一化激活函数，将一个给定向量$K=[k_1,k_2,…k_n]$压缩到另一个向量$K’=[k’_1,k’_2,…k’_n]$，并且使得$K’$中的元素都在$(0,1)$之间，且总和为$1$（类似概率的分布）。任意一个元素$k$的<code>softmax</code>表达式为：</p>
+<p>$$k’=softmax(k)=\frac {e^k} { \sum_{i=1}^ne^{k_i}}$$</p>
+<p>常常将<code>softmax</code>层放在输出层之前。</p>
+<h2 id="权重初始化"><a href="#权重初始化" class="headerlink" title="权重初始化"></a>权重初始化</h2><ul>
+<li>当网络很深时，不要将权重初始化为很小的值</li>
+<li>Xavier初始化：每层的权重$W_{m,n}$都从标准高斯分布中随机采样，并将结果除以$\sqrt{m}$。即：<pre><code class="python">W = np.random.randn(m, n) / np.sqrt(m)
+</code></pre>
+</li>
+<li>使用Xavier初始化时，如果对应层使用ReLU函数，需要将$W$除以$2$（因为有一般的输入数据被丢弃）</li>
+</ul>
+<h2 id="2-BN（批量归一化）"><a href="#2-BN（批量归一化）" class="headerlink" title="2. BN（批量归一化）"></a>2. BN（批量归一化）</h2><p>在网络中加入BN（批量归一化）层。BN层中发生的事情是：对于输入BN层的任意mini-batch，假设该batch中有$N$个样本，每个样本维度为$D$。也即输入数据集$X$的规模为$N\times D$。我们先来看看一般的归一化方法：对于每个维度（每个特征）上的$X$都求均值和方差，并据此对每个维度上的数据进行归一化。对第$k$个维度，归一化之后的数据为：</p>
+<p>$$\hat x_k=\frac{x_k-\mathrm{E}[x_k]}{\sqrt{\mathrm{Var}[x_k]}}$$</p>
+<p>其中$\mathrm{E}[x_k]$是第$k$维所有$x$的均值，$\mathrm{Var}[x_k]$是第$k$维所有$x$的方差。这一过程通常发生在全连接层或卷积层之后，激活层之前。这么做虽然可以达成归一化的目的，但是一定程度上破坏了之前学习到的数据分布，因此采用以下方法改进：</p>
+<p>对于batch中每个维度的数据，引入参数$\gamma_k,\beta_k$。并令它们的初始值为：<br>$$\gamma_k=\sqrt{\mathrm{Var}[x_k]},\ \beta_k=\mathrm{E}[x_k]$$</p>
+<p>改进版的归一化中，我们使用$y_k=\gamma_k\hat{x}_k+\beta_k$来进行归一化操作。其中$\hat{x}_k$是刚才普通归一化得到的结果。之前提到，$\hat{x}_k$可能会导致数据分布损失，但是经过$y_k=\gamma_k\hat{x}_k+\beta_k$，$y_k$的值可以把归一化后的数据还原到原始数据，这样就保证开始训练时，之前的学习成果不会因为归一化而丢失。</p>
+<p>与此同时，随着训练的进行，$\gamma_k,\beta_k$的值也会进行根据梯度下降进行调整，这样就可以使得数据从原始数据开始，逐渐归一化为符合高斯分布的数据，并将数据通过缩放和平移，变换到一个便于计算的区域，这样就既保存了之前的学习成果，又方便了之后的处理。妙蛙！(๑•̀ㅂ•́)و✧</p>
+<h2 id="3-SGD的优化方法"><a href="#3-SGD的优化方法" class="headerlink" title="3. SGD的优化方法"></a>3. SGD的优化方法</h2><p>普通SGD（$w^{new}=w-\alpha \nabla f(x)$）缺点：</p>
+<ul>
+<li>会陷于局部极小值（鞍点）</li>
+<li>梯度方向不与全局方向相同</li>
+<li>部分样本的梯度与总体梯度不一定相同</li>
+</ul>
+<p>类似一个小球以十分不科学的均匀速度滚下山，而且每个时刻的速度方向都是向着当前的最陡峭方向</p>
+<h3 id="动量法-Momentum"><a href="#动量法-Momentum" class="headerlink" title="动量法(Momentum)"></a>动量法(Momentum)</h3><p>在梯度项后加入一个动量（速度）项，速度的方向就是前一步的梯度方向：</p>
+<p>$$v^{new}=\nabla f(x)+\rho v,w^{new}=w-\alpha v^{new}$$</p>
+<p>v的初始值为0，在每次迭代中更新。$\rho$是摩擦系数（超参数，通常取$0.9$）。类似一个小球滚下山，但速度越来越快，由于引入摩擦系数，可以保证最终停在山脚（感觉科学了一些呢）。这样可以在“惯性”的作用下越过鞍点，收敛速度也更快。</p>
+<h3 id="Nesterov动量（Nesterov-Momentum）"><a href="#Nesterov动量（Nesterov-Momentum）" class="headerlink" title="Nesterov动量（Nesterov Momentum）"></a>Nesterov动量（Nesterov Momentum）</h3><p><img src="https://raw.githubusercontent.com/creeper121386/blog-file/master/2018-07-03%2012-31-55%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="Nesterov动量（右）与普通动量法（左）的比较"></p>
+<p>在某一点处，假设向着当前速度行进一段时间后，计算出行进后某点处的梯度方向，然后将二者合成，作为当前实际的前进方向:</p>
+<p>$$v^{new}=\rho v-\alpha \nabla f(x+\rho v),w^{new}=w+v^{new}$$</p>
+<h3 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h3><p>在迭代过程中把每一步计算得到的梯度平方项累加，并把计算后的梯度除以当前的累加项：</p>
+<p>$$S^{new}=S+(\nabla f(x))^2,w^{new}=w-\alpha \frac{\nabla f(x)}{S^{new}}$$</p>
+<p>优点：可以避免梯度下降时对各个维度的$w$敏感程度不同（感觉有些类似归一化）<br>缺点：导致步长越来越小，容易困在局部极值点。因此一般不使用AdaGrad，而用改进的方法：</p>
+<h4 id="改进：RMSprop"><a href="#改进：RMSprop" class="headerlink" title="改进：RMSprop"></a>改进：RMSprop</h4><p>在累加平方项的过程中，同时使得每次累加的值不断减小，这样就保证了步长不会随着训练而减小过多：</p>
+<p>$$S^{new}=\rho S+(1-\rho)(\nabla f(x))^2,w^{new}=w-\alpha \frac{\nabla f(x)}{S^{new}}$$</p>
+<p>其中$\rho$是衰减率，使得累加项的增幅逐渐减小。</p>
+<h3 id="Adam算法（动量-RMSProp）"><a href="#Adam算法（动量-RMSProp）" class="headerlink" title="Adam算法（动量+RMSProp）"></a>Adam算法（动量+RMSProp）</h3><p>结合了二者的优点，在每次迭代时计算出动量项和梯度平方的累加项，并综合二者信息进行权重更新。</p>
+<h3 id="二阶优化"><a href="#二阶优化" class="headerlink" title="二阶优化"></a>二阶优化</h3><h4 id="1-牛顿法"><a href="#1-牛顿法" class="headerlink" title="1.牛顿法"></a>1.牛顿法</h4><p>假设loss函数$E(x)$是一个$N$维的实值函数（从$N$维空间到实数的映射），把求该函数的极值点的问题，转化为求$E’(x)=0$的问题。在每次迭代中，使用二次函数拟合损失函数（即二项泰勒展开），找到展开后的二次函数的极值点，直接将其当做新的权重，由此不断进行优化。</p>
+<p>在实际计算中，假设在$x_0$点处进行迭代，$E’(x)$是$E(x)$关于$x$每一个维度求导数，是$n\times 1$的向量。$E’’(x)$是$E(x)$关于$x$任意两个维度求导数，因此$E’’(x)$是$n\times n$的矩阵，称为<strong>海森矩阵</strong>（设为$H(x)$）。泰勒展开并解方程，可以得到在$x_0$处牛顿法更新的表达式：</p>
+<p>$$x=x_0-H^{-1}(x_0)E’(x_0)$$</p>
+<p>其中令$-H^{-1}(x_0)E’(x_0)=d$称为牛顿法的迭代方向。</p>
+<h4 id="2-拟牛顿法"><a href="#2-拟牛顿法" class="headerlink" title="2.拟牛顿法"></a>2.拟牛顿法</h4><p>由于牛顿法每一次迭代就要计算二阶导数并求逆，计算较为复杂，因此使用一个近似的矩阵$B$和$D$来逼近$H$和$H^{-1}$。</p>
+<p>要拟合海森矩阵，就要知道它满足的条件，并以此作为依据来进行拟合。假设在第$k$次迭代过程中的$x$值为$x<em>k$，那么将$x$在$x</em>{k+1}$处泰勒展开，并对等式两边应用哈密尔顿算子（即$\nabla$），可以得到关于$H$的方程，将$x_k$代入方程（即把$f(x<em>k)$在$x</em>{k+1}$处展开），可以得到拟牛顿法需要满足的条件：</p>
+<p>$$x_{k+1}-x<em>k=H</em>{k+1}^{-1}(\nabla f(x_{k+1})-\nabla f(x_k))$$</p>
+<p>只要根据这个条件迭代更新矩阵$B,D$，就可以认为最终得到的结果与$H,H^{-1}$在性质上近似。为了消除牛顿法收敛不稳定的特性，常常采用阻尼牛顿法：<br>在迭代方向$d$上寻找一个最优的步长$\lambda$进行迭代。即：</p>
+<p>$$\lambda=arg\min_{\lambda \in \Bbb R}f(x+\lambda d)$$</p>
+<p>常用的拟牛顿法有：</p>
+<ul>
+<li><p>DFP算法：$B,D$初始化为单位矩阵，通过待定法推导得出迭代公式：</p>
+<p>  $$D_{k+1}=D_k+\frac{s_ks_k^T}{s_k^Ty_k}-\frac{D_ky_ky_k^TD_k}{y_k^TD_ky_k}$$</p>
+<p>  其中$s_k=\lambda_k d_k,y<em>k=\nabla f(x</em>{k+1})-\nabla f(x_k)$</p>
+</li>
+<li><p>BFGS算法：思路与DFG算法大致相同，只是$s_k,y<em>k$的位置呼互换，推导过程相似。得出迭代表达式：<br>  $$D</em>{k+1}=(I-\frac{s_ky_k^T}{y_k^Ts_k})D_k(I-\frac{y_ks_k^T}{y_k^Ts_k})+\frac{s_ks_k^T}{y_k^Ts_k}$$</p>
+<p>  其中$y_k,s_k$与之前相同。</p>
+</li>
+<li>L-BFGS算法：由于存储$D_k$的开销巨大，因此存储m组$s,y$，即$(s_k,y<em>k),(s</em>{k-1},y<em>{k-1}),…(s</em>{k+1-m},y_{k+1-m})$，并用它们来表示$D_k$。但是由于用到多组$s,y$，使得$D_k$的表达式十分复杂，因此使用快速计算$D_k\nabla f(x_k)$的算法，算法详情见论文：<strong><em>Updating Quasi-Newton Matrices with Limited Storage</em></strong></li>
+</ul>
+<h2 id="4-抗过拟合"><a href="#4-抗过拟合" class="headerlink" title="4.抗过拟合"></a>4.抗过拟合</h2><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>在损失函数后加入一项正则项，作用是作为“惩罚项”，抑制了模型参数的复杂度。常用的有$L_1$正则化和$L_2$正则化：</p>
+<ul>
+<li>$L_1$正则项：所有参数的绝对值之和，可以表示为参数向量$W$的$L_1$范数：$\lambda||W|| <em>1 = \lambda \sum</em>{i=1}^n|w_i|$</li>
+<li>$L_2$正则化：表示为参数向量$W$的$L_2$范数：$\lambda||W||<em>2^2 = \lambda \sum</em>{i=1}^n w_i^2$</li>
+</ul>
+<h3 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h3><p>在不同训练集上训练不同的模型，最后对多个模型集成，得到一个平均的模型。（不同模型超参数有时也会不同）</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>神经网络每次正向传播经过某一层时，随机将该层中的某些神经元的激活函数置0（相当于暂时丢弃这些神经元），要注意每次传播经过每一层丢弃的神经元都时随机的，并且置零的神经元数目根据<code>dropout</code>的概率$p$决定。一般在全连接层进行dropout。另一种解释是，dropout相当于在一个网络中集成学习。 </p>
+<p>进行测试时，每个神经元表示为$y=f(w,x)$，假设输入$x$由$n$个神经元的输出组成，经过dropout之后，该神经元的输入$x$中的$n$项有$m$项被丢弃了，由于在训练中这些项是被随机丢弃的（假设每个神经元被丢弃的概率为$p$），因此在训练时需要记录下被丢弃的神经元，并计算出该神经元$y$的输出的期望值，在测试时使用期望值代替实际值（例如，假设每个神经元都有$p=0.5$的概率被丢弃，那么$y=0.5\sum_{i=1}^nw_ix_i$）。另一种方法是，在训练时除以概率$p$，测试过程保持不变，可以达到相同的效果(反转dropout)</p>
+<p>使用dropout会导致训练时间变长，但是训练后的鲁棒性更好。</p>
+<h3 id="随机扰动"><a href="#随机扰动" class="headerlink" title="随机扰动"></a>随机扰动</h3><p>dropout和BN使用的其实都是这种思想。其他使用随机性方法的例子还有：</p>
+<ul>
+<li>对图片随机裁剪，翻转</li>
+<li>使用色彩抖动，例如随机改变对比度和亮度</li>
+<li>类似dropout，随机将网络中的一些权重设置为0，相当于暂时切断部分神经元之间的连接。</li>
+<li>部分最大池化：随机池化部分区域</li>
+<li>随机深度：在训练时随机丢弃一些层，在测试时使用全部层。</li>
+</ul>
+<h2 id="5-生成模型"><a href="#5-生成模型" class="headerlink" title="5. 生成模型"></a>5. 生成模型</h2><h3 id="Pixel-RNN"><a href="#Pixel-RNN" class="headerlink" title="Pixel RNN"></a>Pixel RNN</h3><p>该模型的初始输入是图片的第一个像素（初始像素）（如果是<code>RGB</code>三通道，那么每个像素包含三个数字），输出下一个像素；然后输入初始像素和生成的像素，得到下一个像素…每一次的输入都包含之前所有的像素，不断循环得到整张图片。</p>
+<p>也可以用在语音合成和文字和影像生成上。</p>
+<h3 id="自动解码器（AE）"><a href="#自动解码器（AE）" class="headerlink" title="自动解码器（AE）"></a>自动解码器（AE）</h3><p>$$\text{原图片} \stackrel {encode}{\longrightarrow} code \stackrel {decode}{\longrightarrow} \text{生成图片}$$</p>
+<p>通过训练使得生成的图片更接近于原图片，训练完成后输入一个随机的$code$向量，通过$decode$就可以得到生成的图片。</p>
+<h3 id="改进：变分自动解码器（VAE）"><a href="#改进：变分自动解码器（VAE）" class="headerlink" title="改进：变分自动解码器（VAE）"></a>改进：变分自动解码器（VAE）</h3><p>不直接生成$code$向量，而是生成三个向量$m,\sigma$，再从一特定分布中取一向量$e$，通过$code=exp(\sigma)\times e+m$得到$code$。其他和$AE$相同。</p>
+<p>训练完毕后，如果在生成过程中人为指定$code$向量的某些维度，得到的图片中会有某些共同性。可以认为，$code$中的维度具有控制图片性质的功能，具有某些特定的含义。</p>
+<p>原理：假设所有的真实样本都符合<strong>高斯混合分布</strong>，是从某一个由高斯混合模型中生成的，$VAE$通过极大似然来估计获得该模型的参数，即通过高斯混合模型来拟合真实的数据（记为$x$）分布。高斯混合模型（记为$G$）是由多个不同的高斯模型$g_1,g_2,…g_n$组合得到，初始的噪声$code$（记为$z$），其实包含的就是 <strong>选择哪些$g_i$，以及从这个高斯模型中的那个地方采样</strong>，采样结果组合起来就得到了生成的样本。</p>
+<p>具体如何得到这个高斯混合模型$G$，也即如何从$z$得到各个$g_i$的参数$\sigma, \mu$，方法就是通过神经网络$decoder$来拟合不断拟合$G$的分布。也即，训练$decoder$的过程就是求$decoder$中的参数对$P(x)$的最大似然。而此时:</p>
+<p>$$P(x)=\int_{z}P(z)P(x|z)$$</p>
+<p>即真实数据的概率分布等于，在向量$z$中选择一个初始值$z$（这个值用来控制选择哪个高斯模型的哪个位置采样），概率为$P(z)$，并且在给定一个初始值$z$的情况下，$G$生成真实样本$x$的概率，即$P(x|z)$。对于每个这样的初始值$z$，模型进行一次采样，将所有采样的结果叠加，概率为$\int P(x)$</p>
+<p>通过数学推导，$L = logP(x) = L_b + KL(q(z|x)||p(z|x))$，$L$表示似然，也即$L$由$q(z|x),p(z|x)$的$KL$散度（一种衡量概率分布之间的关联性的量）以及一个$L_b$组成，由于$KL&gt;0$，因此$L_b$就是似然的下界。</p>
+<p>在实际的操作中，往往通过最大化该下界，来使得$L<em>b$尽可能接近$L$，即尽可能最小化$KL$散度，使得$KL=0$。通过同时最小化$KL$以及最大化$E</em>{q(z|x)}[logP(x|z)]$，就得到了$VAE$的损失函数。</p>
+<p>缺点：只是单纯地使得输出的结果和数据集中的某些图片越接近越好，有时只是数据集中不同样本的简单组合。</p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <span>Unique AI Lab</span><br/>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+
+    </div>
+</body>
+
+
+
+
+ 	
+</html>

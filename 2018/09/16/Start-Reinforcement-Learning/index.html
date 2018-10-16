@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/favicon.png"/>
+	 <link rel="shortcut icon" href="/img/favicon.png">
+	
+			
+    <title>
+    Unique AI Lab
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">UNIQUE AI</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/GAN-图像翻译-CV/">GAN 图像翻译 CV</a></li><li><a class="category-link" href="/categories/强化学习/">强化学习</a></li><li><a class="category-link" href="/categories/机器学习/">机器学习</a></li><li><a class="category-link" href="/categories/深度学习/">深度学习</a></li><li><a class="category-link" href="/categories/深度学习/计算机视觉/">计算机视觉</a></li><li><a class="category-link" href="/categories/自然语言处理/">自然语言处理</a></li><li><a class="category-link" href="/categories/自然语言处理/NLP/">NLP</a></li><li><a class="category-link" href="/categories/自然语言处理/NLP/机器学习/">机器学习</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简介">
+		                简介
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/project/" title="项目">
+		                项目
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/member/" title="成员">
+		                成员
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/UNIQUE-AILAB" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(/img/a_dog.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 1rem ;"><h2>强化学习入门</h2><h3>Jiajie Shen</h3></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p>填个强化学习入门的坑~</p>
+<a id="more"></a>
+<h2 id="Step-1-基础的概念"><a href="#Step-1-基础的概念" class="headerlink" title="Step 1: 基础的概念"></a>Step 1: 基础的概念</h2><p><img src="/img/Start-Reinforcement-Learning/easy_Simple.png" alt="easy example"></p>
+<ul>
+<li>引入一些基本的概念<ul>
+<li>$E \space (Environment) $ ：环境，即机器所处的环境</li>
+<li>$X$ 或 $S(State)$：机器所处的状态空间，即所有空间构成的集合，$x $ 或 $s$ 为机器感知到的环境的描述</li>
+<li>$A(Action)$ ：动作空间，即机器所有能采取的动作的集合， $a$ 为机器采取的具体的动作</li>
+<li>$P$ ：动作背后潜在的转移函数，能使作用在当下状态 $s$ 的动作 $a$ 使环境从当前状态按某种概率转移到另一个状态。</li>
+<li>$R(reward)$：奖赏，即状态变化的时候反馈给机器的信息，可正可负</li>
+</ul>
+</li>
+<li>综上所述，一个强化学习对应了一个四元组 $E$ = $\langle X，A，P，R \rangle$ </li>
+<li>我们学习的目的是通过不断地尝试学的一个策略 $\pi (policy)$ ，根据策略有 $a = \pi (x)$ <ul>
+<li>策略有两种表示：确定性策略：$\pi : X {\rightarrow} A $  ，另一种是随机性策略$\pi : X\times A \rightarrow \mathbb R $ ，$\pi(x，a)$代表状态 $s$ 下 选择 $a $ 的概率，自然有 $\sum_a \pi(x， a) = 1$ </li>
+<li>我们用执行策略后的得到的<strong>累计奖赏</strong>来评估策略的优劣。学习的目的就是找到使长期累积最大化的策略。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Step-2-从“最大化单步奖赏开始”"><a href="#Step-2-从“最大化单步奖赏开始”" class="headerlink" title="Step 2: 从“最大化单步奖赏开始”"></a>Step 2: 从“最大化单步奖赏开始”</h2><ul>
+<li>和监督学习相比，强化学习的一个最大的特征就是最终奖赏<strong>有延时性</strong>，可以把强化学习看作具有”延迟标记信息“的监督学习问题。我们不妨先从一个简单的情形开始讨论：<strong>最大化单步奖赏</strong>（这和我们的现实情况还是有很大差别的）</li>
+</ul>
+<p>  <strong>如何最大化单步奖赏？ 我们给出如下的考虑</strong>   </p>
+<ul>
+<li>知道每个动作带来的奖赏</li>
+<li>执行奖赏最大的动作<ul>
+<li>简单情况是每个动作的奖赏是一个确定值</li>
+<li>更普遍的情况是奖赏来自于一个概率分布，一次尝试不能确切地获得平均奖赏</li>
+</ul>
+</li>
+<li>我们用<em>”K-摇臂赌博机“</em>来对应这种问题：”如图所示，赌徒投入一个硬币后，选择一个摇杆，每个摇杆有一定的概率吐出硬币，这个概率赌徒并不知道。赌徒的目标就是通过找到一个策略来使自己在等量成本下，收益最大”。</li>
+<li>我们可以先考虑两种极端的思路：<ul>
+<li><em>Exploration-only（仅探索）</em>：把所有的尝试机会平均分给每个摇臂（轮流按下每个摇臂），最后将得到的平均概率作为奖赏期望的近似估计。这样虽然能获得每个摇臂近似的奖赏，但是做不到收益最大。</li>
+<li><em>Exploitation-only (仅利用)</em> ： 只按目前最优的摇臂（目前为止平均奖赏最大的）。这样无法判断每个摇臂的奖赏，当前最优很可能和全局最优不同，也不能保证收益最大。</li>
+<li>Exploration vs Exploitation ：显然，在尝试次数有限的情况下，双方是相互矛盾的(即探索-利用窘境：Exploration -Exploitation dilemma)。想要奖赏最大，必须有所折中</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>于是我们引入：$\epsilon$ - greedy （$\epsilon$-贪心）是一种基于概率折中两者的算法：</p>
+<p><img src="/img/Start-Reinforcement-Learning/epsilon-greedy.png" alt="epsilon-greedy"></p>
+<ul>
+<li><p>基本思路：每次尝试时，以 $\epsilon$ 的概率进行探索，以均匀概率随机选取一个摇臂，以 $1-\epsilon$ 的概率进行利用，即选择当前<strong>平均奖赏</strong>最高的摇臂</p>
+<ul>
+<li><p>关于如何记录<strong>平均奖赏</strong>，最简单的是记录每个摇臂获得的奖赏取平均，但是需要记录若干个奖赏值，对计算空间有一定要求。于是我们采取增量式来记录平均奖赏：</p>
+<p>$$Q<em>n(k) = \frac{1}{n}((n-1)\times Q</em>{n-1}(k) + v_n)$$</p>
+</li>
+<li><p>（其中 $Q_n(k)$ 为摇臂k的n次尝试后的平均奖赏，$v_n$为第n次获得的奖赏) ，此后只需要记录 $Q_n(k) $ 和  $v_n$ 的值。</p>
+</li>
+</ul>
+</li>
+<li><p>引入算法</p>
+<p><img src="/img/Start-Reinforcement-Learning/epsilon-greedy.png" alt="epsilon-greedy"></p>
+</li>
+<li><p>一些说明：</p>
+<ul>
+<li>当奖赏的不确定性较大时（概率分布较宽），需要更多的探索，即更大的 $\epsilon$ ；类似的，概率分布集中时，则需要更小的 $\epsilon$ </li>
+<li>若尝试次数非常大，在一段时间后，每个摇臂的奖赏都能很好的近似出来，不再需要探索，此时可以设置 $\epsilon = 1/ \sqrt{t}$ （笔者亲测这个效果非常好）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>此外我们还可以使用softmax算法：</p>
+<ul>
+<li>我们不直接设置探索和利用的概率，而是通过计算不同 $k$ 各自 $Q(k)$ 的占比来判断，选取哪一个摇臂，我们有 $$P(k) = \frac{e^{\frac{Q(k)}{\tau}}}{\sum_{i=1}^{K} e^{\frac{Q(i)}{\tau}}} $$  其中，$\tau$ 为“温度”，$\tau$ 越小，则平均奖励高的摇臂被选取的概率越高，$\tau$ 趋于0时，Softmax将趋于“仅利用”，$\tau$ 趋于无穷大时， Softmax将趋于”仅探索”</li>
+<li>引入算法</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img/Start-Reinforcement-Learning/softmax.png" alt="Algorithm Softmax"></p>
+<ul>
+<li>至此我们对如何单步奖赏最大化已经有了一定了解，接下来我们转入多步强化学习任务。</li>
+</ul>
+<h2 id="Step-3-从模型已知的学习任务-有模型学习-开始"><a href="#Step-3-从模型已知的学习任务-有模型学习-开始" class="headerlink" title="Step 3: 从模型已知的学习任务(有模型学习)开始"></a>Step 3: 从模型已知的学习任务(有模型学习)开始</h2><ul>
+<li>在现实世界中，绝大多数的学习任务都是没有固定模型的，即上面提到的环境中参数是未知的。即所谓的“免模型学习 (model-free learning) ”；与之对应的则是知道环境参数的学习：“有模型学习(model-based learning)”。我们先从有模型学习开始，来讨论一些在强化学习中十分重要的结论。</li>
+<li>此部分涉及到复杂的数学推导，阅读时可以注重推导出的结论而非过程</li>
+</ul>
+<hr>
+<ul>
+<li><p>先列一下有模型学习中已知的参数：</p>
+<ul>
+<li>$P_{x \rightarrow x’}^a$ 已知，即已知对于任意状态 $x$，$x’$和动作 $a$， 在 $x$ 状态下执行动作 $a$ 转移到 $x’$ 状态的概率(状态转移概率已知)</li>
+<li>$R_{x \rightarrow x’}^a$ 已知，即已知上述状态转移带来的奖赏</li>
+<li>最后不妨假设状态空间 $X$ 和 动作空间 $A$ 是有限的</li>
+</ul>
+</li>
+<li><p>我们再引入一些研究对象:</p>
+<ul>
+<li>$V^{\pi}(x)$: 代表从状态 $x$ 出发后，使用策略 $\pi$ 带来的<strong>累计</strong>奖赏。<ul>
+<li>$V(\cdot)$ 称为“状态值函数(state value function)” </li>
+</ul>
+</li>
+<li>$Q^{\pi}(x，a)$: 代表从状态 $x$ 出发后，执行动作 $a$ <strong>后</strong>使用策略 $\pi$ 带来的<strong>累计</strong>奖赏。<ul>
+<li>$Q(\cdot)$ 称为“状态-动作值函数(state-action value function)” </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>为了得到最优的算法，我们先讨论<strong>策略评估</strong>，即如何评估我们的算法</p>
+<h3 id="策略评估"><a href="#策略评估" class="headerlink" title="策略评估"></a>策略评估</h3><ul>
+<li>我们先尝试给出$V^{\pi}(x)$的式子：(其中 $r_t$为第 $t$ 步获得的奖赏)<br>$$\begin{cases}<br>V^{\pi}<em>T(x) = \mathbb E</em>{\pi}[\frac{1}{T} \sum_{t=1}^T r_t | x<em>0=x]\<br>V^{\pi}</em>\gamma (x) = \mathbb E<em>{\pi}[\sum</em>{t=0}^{+\infty}\gamma ^tr_{t+1} | x_0=x]\<br>\end{cases}<br>$$</li>
+<li>以上两个式子分别是根据 $T$ 步累计奖赏和 $\gamma$ 折扣累计奖赏展开的，计算了前 $T$ 步奖赏的期望和按 $\gamma$ 衰减奖赏的期望。同样的我们有<br>$$\begin{cases}<br>Q^{\pi}<em>T(x，a) = \mathbb E</em>{\pi}[\frac{1}{T} \sum_{t=1}^T r_t | x_0=x，a<em>0=a]\<br>Q^{\pi}</em>\gamma (x，a) = \mathbb E<em>{\pi}[\sum</em>{t=0}^{+\infty}\gamma ^tr_{t+1} | x_0=x，a_0=a]\<br>\end{cases}<br>$$</li>
+<li>和上面状态值函数的区别在于初始条件增加了$a_0=a$</li>
+</ul>
+<p>考虑到系统下一时刻的状态只和当前状态有关，不依赖以往任何状态，于是我们可以通过递归展开进一步计算 $V^{\pi}_T(x)$。</p>
+<p><img src="/img/Start-Reinforcement-Learning/T_recursion.png" alt="T_recursion"></p>
+<ul>
+<li>这个式子中，<strong>变量</strong>在于 $\pi(x,a)$，即我们选择的策略，而非$V_T^{\pi}(x)$中的初始状态 $x$，值函数关注的不是起始状态，而是采取的策略。即<strong>值函数是关于策略的函数</strong>。</li>
+<li>可以这样理解这个式子：<br>状态值函数 =  $\sum$ [在各种 $x$ 状态下选各种 $a$ 的概率 <em> 状态变化的概率 </em> ( 状态变化带来的奖赏 + 之前的奖赏的部分折扣)]，含义是包含多重情况的期望</li>
+<li><strong>这样的递归式子称为 Bellman等式</strong></li>
+</ul>
+<p>(可以暂时忽略数学推导的部分)<br>​可以看出，想要计算 $V^{\pi}_T(x)$，我们可以从单步奖赏出发，通过迭代计算 $V_2^{\pi}$…并不断继续，对于 $T$ 步累计奖赏，只需要迭代 $T$ 轮就可以精确的计算出值函数。</p>
+<p>同样的有<br><img src="/img/Start-Reinforcement-Learning/gamma_recursion.png" alt="gamma_recursion"></p>
+<blockquote>
+<p>对于$V^{\pi}_{\gamma}(x)$，我们需要迭代次数设置一个停止准则，通常的情况是设置一个阈值 $\theta$，当每次迭代前后 $\triangle T \geq \theta $ 时进行计算，反之则停止</p>
+</blockquote>
+<p>于是我们也可以得到状态-动作值函数</p>
+<p><img src="/img/Start-Reinforcement-Learning/VQ_function.png" alt="VQ_function.png"></p>
+<p>至此我们得到了量化 $V$ 和 $Q$ 的手段，下面我们基于策略评估着手改进我们的策略，<strong>即策略改进</strong></p>
+<h3 id="策略改进"><a href="#策略改进" class="headerlink" title="策略改进"></a>策略改进</h3><ul>
+<li><p>继续给出几个这部分讨论的对象</p>
+<ul>
+<li>我们的目的是得到：$\pi^*=\arg\max\sum_{x\in X}V^{\pi}(x)$，即最大化累计奖赏</li>
+<li>对应得到的值函数为：$\forall x\in X:V^<em>(x)=V^{\pi^</em>}(x)$，即最优策略对应的值函数<ul>
+<li>注意上式要求策略空间中<strong>没有约束的</strong>，如果我们采取了违背约束的动作以获得最大累计奖赏，这样获得的策略是有问题的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>为了获得最优的策略，即获得最优的状态值函数，我们继承之前单步奖赏最大化模型的思路，有：</p>
+</li>
+</ul>
+<p>将所有动作求和改为 <strong>每一步选取奖赏最大化的动作</strong>，这样得到上式的最优化版本：</p>
+<p><img src="/img/Start-Reinforcement-Learning/improvement_V.png" alt="improvement_V"></p>
+<ul>
+<li>之前计算的是各种 $x$ 状态下选各种 $a$ 的概率 $\pi(x,a) (\sum = 1)$ 后乘对应情况的奖赏值之和，在我们取最优的条件下，所有非最优情况 $\pi(x,a)$ 置为0，把最优情况前的概率 $\pi^*(x,a)$ 置为1，(最优情况则是$\pi(x,a)$后面的奖赏部分计算值最大)。所以之前式子第一个求和式子消失了。</li>
+<li>因为我们选取了最优动作，$V^<em>(x)$ 就和最大的 $Q(x,a)$对应了(即当前的状态值函数直接和状态-动作函数挂钩)，既有<br>$$ V^</em>(x) = max_{a\in A}Q^{\pi ^*}(x,a)$$<br>(暂时理解不能可以忽略)<br>于是可以得到最优的 $Q$：<br><img src="/img/Start-Reinforcement-Learning/improvement_Q.png" alt="improvement_Q"></li>
+<li><strong>上述关于最优值函数的等式，称作最优Bellman等式</strong></li>
+</ul>
+<p>我们基于 <strong>每一步选取奖赏最大化的动作</strong> 进行策略的优化，从数学角度可以印证，我们的考虑是正确的，我们的策略：每一次选最优状态值对应动作，能够让总的值函数不断递增以达到最大，<strong>值函数关于策略的优化是单调递增的</strong>(略去证明)</p>
+<p>此时我们有<br>$$\pi’(x) = \arg\max_{a\in A} Q^{\pi}(x,a)$$<br>通过对已有参数的计算，我们可以算出所有 $x$ 状态下所有的$Q(x,a)$的值，选取最大的$x$，作为我们的策略。 </p>
+<h3 id="策略迭代和值迭代"><a href="#策略迭代和值迭代" class="headerlink" title="策略迭代和值迭代"></a>策略迭代和值迭代</h3><ul>
+<li>先回顾一下之前两部分的内容：<ul>
+<li>对策略评估：</li>
+</ul>
+<ol>
+<li>给出了值函数的迭代计算式，为量化提供了标准</li>
+<li>根据迭代式可以看出，值函数是关于策略的函数</li>
+</ol>
+<ul>
+<li>对策略优化：</li>
+</ul>
+<ol>
+<li>我们采取每一步选取奖赏最大化的动作作为我们的策略的优化</li>
+<li>且这种优化方式能稳定带来值函数的递增(数学部分略去)</li>
+</ol>
+</li>
+<li>让我们量化一下一些参数：<ul>
+<li>$\pi(x,a)$ 可以看作 $|X|\times|A|$的矩阵，第$(x_i,a_j)$个位置的意义是在状态 $x_i$ 选取 $a_j$ 动作的概率</li>
+<li>$Q(x, a)$ 也是 $|X|\times|A|$的矩阵</li>
+<li>$\pi(x)$ 可以看作 $|X|\times1$的矩阵，第$(x_i,1)$个位置的意义是在在状态 $x_i$选取的动作(不是概率)</li>
+<li>$V(x)$ 也是 $|X|\times1$的矩阵</li>
+</ul>
+</li>
+</ul>
+<p>上面讨论了评估策略和优化策略的方法，下面我们可以给出求解最优策略的方法。</p>
+<ul>
+<li>策略迭代：(通过优化策略的方法得到最大的值函数，此时的策略为最优策略)<ul>
+<li>根据上面的讨论，我们能很自然的得到策略迭代的优化方法，基本思路如下：</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>初始化：$\forall x\in X, V(x)=0, \pi(x,a)=\frac{1}{|A(x)|}$(开始的策略为随机选择)</li>
+<li>评估策略：利用bellman等式计算 $V_T(x)$</li>
+<li>优化策略：$\forall x\in X,\pi<em>{new}(x)=\arg\max</em>{a\in A} Q(x,a)$(选取奖赏最大化的动作)</li>
+<li>判断是否停止循环，不停止回到2</li>
+<li>得到最优策略 $\pi$<ul>
+<li>上面的算法核心在第三步优化策略，这也是“策略迭代”名字的由来，不过每次改进策略后都要重新进行策略评估，这通常很费时<br>之前我们提到，策略改进能稳定带来值函数的增加，值函数关于策略是单调递增的，所以我们直接最大化值函数$V(x)$ 来获得策略，这就是值迭代：</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>值迭代：(直接优化值函数得到最大值函数，根据最大值函数得到最优策略)</li>
+</ul>
+<ol>
+<li>初始化：$\forall x\in X, V(x)=0$</li>
+<li>根据最优bellman等式优化 $V(x)$</li>
+<li>判断是否停止循环，不停止回到2</li>
+<li>得到最优策略：$\pi<em>{new}(x)=\arg\max</em>{a\in A} Q(x,a)$</li>
+</ol>
+<p>以上就是关于有模型学习的讨论</p>
+<h2 id="Step-4-免模型学习"><a href="#Step-4-免模型学习" class="headerlink" title="Step 4: 免模型学习"></a>Step 4: 免模型学习</h2><h3 id="蒙特卡罗强化学习"><a href="#蒙特卡罗强化学习" class="headerlink" title="蒙特卡罗强化学习"></a>蒙特卡罗强化学习</h3><p>与有模型学习相比，免模型学习对环境一无所知，我们先讨论未知环境带来的问题：</p>
+<ul>
+<li>策略无法评估：之前bellman等式的展开需要已知转移概率 $P$ 和奖赏 $R$ 进行全概率展开。在模型未知的情况下，我们进行模型评估的方法失效了。</li>
+<li>策略迭代算法估计的是状态值函数 $V$，最终策略是通过状态-动作函数 $Q$ 获得。在模型未知的情况下，很难从 $V$ 直接转换到 $Q$。</li>
+<li>由于环境未知，我们并不知道 $X$ 中有多少状态。(这直接影响了我们对策略$\pi$的初始化)</li>
+</ul>
+<p>基于上面的问题，我们给出对应的解决方法：</p>
+<ul>
+<li>和K摇臂赌博机一样，用<strong>平均累计奖赏</strong>近似代替期望累计奖赏(这称作蒙特卡罗强化学习)。当然，由于采样为有限次数，此方法更适用于T步累计奖赏的强化学习任务</li>
+<li>直接估计 $Q$ 而非 $V$</li>
+<li>在探索中逐渐发现状态并估计 $Q$ </li>
+</ul>
+<p>下面我们先介绍蒙特卡罗强化学习：<br><img src="/img/Start-Reinforcement-Learning/on-policy.png" alt="on-policy"></p>
+<p>下面我们解释一下这个算法：</p>
+<ol>
+<li>为了计算状态-动作函数，我们先进行采样，即第3行产生轨迹</li>
+<li>评估策略时，(第6行)遵循了$\epsilon$贪心算法的思路，计算平均累计奖赏</li>
+<li>优化策略时，(第9行)我们将原始策略结合$\epsilon$贪心得到：<br>$$\pi^{\epsilon}(x) =<br>\begin{cases}<br>\pi(x)   \quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad 以概率 1-\epsilon \<br>A中以均匀概率选择的动作\quad\space 以概率 \epsilon\<br>\end{cases}<br>$$<br>这样设计的策略可以让每个动作都有可能被选取，多次采样可以产生不同的采样轨迹</li>
+</ol>
+<ul>
+<li>我们注意到，上述有两处引入的 $\epsilon$ 贪心：<ul>
+<li><strong>评估策略</strong>时用平均累计奖赏近似值函数，这是$\epsilon$ 贪心的策略</li>
+<li><strong>优化策略</strong>时将原始策略与$\epsilon$ 贪心的策略结合</li>
+</ul>
+</li>
+<li>这样的算法，被评估的策略和被改进的策略是同一个函数，称为：<strong>同策略</strong>(<strong>on-policy</strong>)蒙卡罗特强化学习算法</li>
+</ul>
+<p>当然，我们希望优化的算法就是原始策略而非$\epsilon$ 贪心的策略，同时也希望保有原来评估策略的方法，于是便有了<strong>异策略</strong>(<strong>off-policy</strong>)蒙卡罗特强化学习算法：<br><img src="/img/Start-Reinforcement-Learning/off-policy.png" alt="off-policy"><br>当优化的策略和评估的策略不相同时，看似并不能起到优化作用，实际上并非如此。可以从数学的角度上分析，通过对同策略算法中的奖赏$R$乘以一个系数，就能将原本$\epsilon$ 贪心策略中计算的值函数的期望变为原始策略的期望(略去证明，此处涉及到<strong>重要性采样</strong>知识)。即上述算法中的第6行所显示的。<br>同样的，因为优化策略为原始策略，第10行也做了相应变化。</p>
+<h3 id="时序差分学习"><a href="#时序差分学习" class="headerlink" title="时序差分学习"></a>时序差分学习</h3><p>蒙特卡罗强化学习需要在<strong>一轮采样</strong>之后才进行值函数估计，我们之前在有模型学习下引入的策略迭代和值迭代算法可以基于bellman等式，在<strong>每一步采样</strong>之后就进行值函数估计，基于这样的想法，我们引入时序差分学习。</p>
+<p>(此部分可以掠过数学推导部分，可以看懂即可)</p>
+<p>还记得这个式子吗？(可以回顾之前的内容)</p>
+<p>$$Q<em>n(k) = \frac{1}{n}((n-1)\times Q</em>{n-1}(k) + v_n)$$</p>
+<p>我们也可以在这个基础上得到增量式计算值函数的公式：</p>
+<ul>
+<li>对于状态-动作对$(x,a)$，不妨假定基于 $t$ 个采样已经估计出值函数<br>$Q<em>t^{\pi}(x,a)=\frac{1}{t}\sum</em>{i=1}^tr<em>i$ ，在得到第 $t+1$ 个采样 $r</em>{t+1}$ 时，代入上式有:</li>
+</ul>
+<p>$$Q<em>{t+1}^{\pi}(x,a) = Q</em>{t}^{\pi}(x,a) +[\frac{1}{t+1}(r<em>{t+1}-Q</em>{t}^{\pi}(x,a))]$$<br>式中括号部分则为 $Q$ 值变化要加的增量。</p>
+<p>此外更一般的，将 $\frac{1}{t+1}$ 可以替换为系数 $\alpha<em>{t+1}$，则增量为$\alpha</em>{t+1}(r<em>{t+1}-Q</em>{t}^{\pi}(x,a))$，在实践中通常令 $\alpha_{t}$ 为一个较小的正数 $\alpha$，将它看作一个累计奖赏的衰减系数，$\alpha$ 越大，越靠后的累计奖赏越重要。</p>
+<p>上式是单步奖赏最大化问题中引入的迭代式，下面我们用bellman等式来计算多步奖赏最大化问题中的迭代式</p>
+<p>以$\gamma$ 折扣累计奖赏为例，有<br>$$Q<em>{t+1}^{\pi}(x,a) = Q</em>{t}^{\pi}(x,a) +\alpha(R^{\alpha}_{x\to x’}+ \gamma Q^{\pi}<em>t(x’,a’) -Q</em>{t}^{\pi}(x,a))$$<br>其中 $x’$ 时前一次在状态 $x$ 执行 $\alpha$ 后转移到的状态，$a’$ 是策略 $\pi$ 在 $x’$ 上选择的动作。</p>
+<p>现在我们有了增量计算值函数的手段，下面引入 Sarsa 和 Q-learning</p>
+<p><img src="/img/Start-Reinforcement-Learning/Sarsa.png" alt="Sarsa"></p>
+<p>此算法名字的由来，是因为每次更新值函数需要知道前一步的状态(state)，前一步的动作(action)，奖赏值(state)，当前状态(state)，将要执行的动作(action)，由此得名 Sarsa算法</p>
+<p>此算法为同策略算法：第5行，第6行都是 $\epsilon$ 贪心策略</p>
+<p>与之对应的Q-learning则是异策略算法：<br><img src="/img/Start-Reinforcement-Learning/Qlearning.png" alt="Qlearning"><br>第6行都是 $\epsilon$ 贪心策略，第5行是原始策略。</p>
+<hr>
+<p>强化学习入门到此结束~</p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <span>Unique AI Lab</span><br/>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+
+    </div>
+</body>
+
+
+
+
+ 	
+</html>
