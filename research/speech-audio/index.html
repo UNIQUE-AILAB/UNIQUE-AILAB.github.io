@@ -1,18 +1,112 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>语音与音频 · UNIQUE AI LAB</title>
-<meta name="description" content="联创 AI 组的研究方向、项目与学习记录。">
-<link rel="icon" href="../../img/favicon.png">
-<link rel="stylesheet" href="../../assets/homepage.css"></head>
-<body><a class="skip" href="#main">跳转到正文</a><div class="wrap">
-<header class="header"><a class="brand" href="../../index.html">UNIQUE <span>AI LAB</span></a>
-<nav class="nav" aria-label="主导航"><a href="../../index.html#research">研究方向</a><a href="https://guidebook.hustunique.com/docs/AI%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97">入门指北 ↗</a><a href="https://github.com/AetherNoah/UNIQUE-AILAB.github.io">GitHub ↗</a></nav></header>
-<main id="main"><section class="detail-hero"><a class="back" href="../../index.html#research">← 全部研究方向</a>
-<p class="eyebrow">AUDIO / Speech and Audio</p><h1>语音与音频</h1><p class="lead">从声音中理解信息，让语言与表达跨越文本的边界。</p>
-<div class="detail-topics"><ul class="topics"><li>语音识别 ASR</li><li>语音合成 TTS</li><li>声音增强与歌声合成</li></ul></div></section>
-<section class="section" aria-labelledby="content-title"><div class="section-heading"><div><div class="eyebrow">EXPLORE & BUILD</div><h2 id="content-title">方向内容</h2></div><span class="status">内容筹备中</span></div>
-<div class="empty-grid"><article class="empty"><div class="eyebrow">PROJECTS</div><h3>项目与实验</h3><p>这里将收录本方向的项目介绍、代码仓库与实验记录。</p><span class="empty-label">待更新 · 暂无内容</span></article><article class="empty"><div class="eyebrow">READING</div><h3>论文与笔记</h3><p>这里将收录论文阅读、组会分享与复现笔记。</p><span class="empty-label">待更新 · 暂无内容</span></article><article class="empty"><div class="eyebrow">RESOURCES</div><h3>学习资料</h3><p>这里将收录入门路径、课程与精选学习资源。</p><span class="empty-label">待更新 · 暂无内容</span></article></div><p class="note">本页为方向占位页。具体研究主题与内容将随团队工作持续更新。</p>
-<div class="actions"><a class="button" href="https://guidebook.hustunique.com/docs/AI%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97">查看入门指北 ↗</a><a class="button" href="../../index.html#research">返回研究方向</a></div></section></main>
-<footer class="footer"><span>UNIQUE AI LAB · 联众人之志，创非凡之事</span><span>基于 <a class="text-link" href="https://github.com/UNIQUE-AILAB">UNIQUE-AILAB</a> 历史网站延续维护</span></footer>
-</div></body></html>
+
+<head>
+    <link rel="bookmark"  type="image/x-icon"  href="../../img/favicon.png"/>
+     <link rel="shortcut icon" href="../../img/favicon.png">
+
+
+    <title>语音与音频 · Unique AI Lab</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../css/mic_main.css" />
+    <link rel="stylesheet" href="../../css/dropdownMenu.css" />
+
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css" />
+    </noscript>
+
+                <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/jquery.scrollex.min.js"></script>
+    <script src="../../js/jquery.scrolly.min.js"></script>
+    <script src="../../js/skel.min.js"></script>
+    <script src="../../js/util.js"></script>
+    <script src="../../js/main.js"></script>
+
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+<link rel="stylesheet" href="../../assets/homepage.css">
+</head><body class="is-loading"><div id="wrapper" class="fade-in">
+<header id="header"><a href="../../index.html" class="logo">UNIQUE AI</a></header><nav id="nav" class="special" >
+            <ul class="menu links" >
+            <!-- Homepage  主页  -->
+            <li >
+                <a href="../../" rel="nofollow">主页</a>
+            </li>
+            <li><a href="../../index.html#research">研究方向</a></li>
+<!-- categories_name  分类   -->
+
+            <li class="active">
+                <a href="#s1">分类</a>
+                        <ul class="submenu">
+                            <li>
+                            <a class="category-link" href="../../categories/GAN-图像翻译-CV/">GAN 图像翻译 CV</a></li><li><a class="category-link" href="../../categories/强化学习/">强化学习</a></li><li><a class="category-link" href="../../categories/机器学习/">机器学习</a></li><li><a class="category-link" href="../../categories/深度学习/">深度学习</a></li><li><a class="category-link" href="../../categories/深度学习/计算机视觉/">计算机视觉</a></li><li><a class="category-link" href="../../categories/自然语言处理/">自然语言处理</a></li><li><a class="category-link" href="../../categories/自然语言处理/NLP/">NLP</a></li><li><a class="category-link" href="../../categories/自然语言处理/NLP/机器学习/">机器学习</a>
+                        </ul>
+            </li>
+
+            <!-- archives  归档   -->
+
+
+                <!-- Pages 自定义   -->
+
+                <li>
+                    <a href="../../about/" title="简介">
+                        简介
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../project/" title="项目">
+                        项目
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../member/" title="成员">
+                        成员
+                    </a>
+                </li>
+
+
+
+            </ul>
+            <!-- icons 图标   -->
+            <ul class="icons">
+
+                        <li><a href="https://github.com/AetherNoah/UNIQUE-AILAB.github.io" class="icon fa-github"><span class="label">GitHub</span></a></li>
+
+
+
+
+            </ul>
+</nav>
+<main id="main"><article class="research-detail"><header><h1>语音与音频</h1>
+<p>Speech and Audio</p></header><p>从声音中理解信息，让语言与表达跨越文本的边界。</p>
+<ul><li>语音识别 ASR</li><li>语音合成 TTS</li><li>声音增强与歌声合成</li></ul><section class="research-slot"><h2>项目与实验</h2><p>项目介绍、代码仓库与实验记录待更新。</p><p class="research-status">暂无内容 · 待更新</p></section><section class="research-slot"><h2>论文与笔记</h2><p>论文阅读、组会分享与复现笔记待更新。</p><p class="research-status">暂无内容 · 待更新</p></section><section class="research-slot"><h2>学习资料</h2><p>入门路径、课程与精选学习资源待更新。</p><p class="research-status">暂无内容 · 待更新</p></section><p><a class="button" href="../../index.html#research">返回研究方向</a></p>
+<p><a href="https://guidebook.hustunique.com/docs/AI%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97">阅读 AI 入门指北</a></p></article></main>
+<div id="copyright"><span>Unique AI Lab</span></div></div></body></html>
