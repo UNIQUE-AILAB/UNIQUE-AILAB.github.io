@@ -10,4 +10,6 @@
 - 维护源码：[AetherNoah/unique-ailab-blog 的 homepage 目录](https://github.com/AetherNoah/unique-ailab-blog/tree/master/homepage)
 - Pages：`master` 分支，根目录；无需 Jekyll 或 npm 构建。
 
-不要直接修改生成的主页和 `research/` 页面，请在源码仓库修改并重新生成。
+Project 栏目收录 FraudLens · 反诈透镜，展示 2026 年睿抗机器人开发者大赛（RAICOM）全国一等奖、项目能力、真实界面与代码仓库入口。
+
+不要直接修改生成的主页、`research/` 和 `project/` 页面，请在源码仓库修改并重新生成。项目内容维护于 `homepage/projects.json`，截图维护于 `homepage/project-images/`。
